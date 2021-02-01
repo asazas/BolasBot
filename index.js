@@ -4,6 +4,8 @@ const Discord = require('discord.js');
 
 const { prefix, token } = require('./config.json');
 
+const asyncData = require('./datamgmt/asyncRaceData.js');
+
 // create a new Discord client
 const client = new Discord.Client();
 
@@ -20,6 +22,7 @@ const cooldowns = new Discord.Collection();
 // when the client is ready, run this code
 // this event will only trigger one time after logging in
 client.once('ready', () => {
+	asyncData.readAsyncRaceSeeds();
 	console.log('Ready!');
 });
 
