@@ -6,6 +6,7 @@ module.exports = {
 	usage: '[título] [seed]',
 	args: true,
 	guildOnly: true,
+	permissions: 'MANAGE_CHANNELS',
 	execute(message, args) {
 		if (args.length !== 2) {
 			return message.channel.send(`${message.author}, uso del comando: ${this.usage}`);
