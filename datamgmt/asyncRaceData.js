@@ -6,6 +6,9 @@ const asyncRaceSeeds = new Discord.Collection();
 
 function writeAsyncRaceSeeds() {
 	const races = Object.fromEntries(asyncRaceSeeds);
+	if (!fs.existsSync(__dirname + '/../data')) {
+		fs.mkdirSync(__dirname + '/../data', { recursive: true });
+	}
 	fs.writeFileSync(__dirname + '/../data/asyncRaceData.json', JSON.stringify(races, null, 4), { flag: 'w' });
 }
 
